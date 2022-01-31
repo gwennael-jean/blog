@@ -1,0 +1,16 @@
+version: '3.0'
+services:
+    web:
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.blog_httpd.rule=Host(`gwennael-jean.ovh`)
+        - traefik.http.routers.blog_httpd.entryPoints=web
+        - traefik.docker.network=proxy
+      networks:
+        - default
+        - proxy
+
+networks:
+  proxy:
+    external:
+      name: proxy

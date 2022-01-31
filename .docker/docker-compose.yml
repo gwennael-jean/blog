@@ -1,0 +1,6 @@
+version: '3.0'
+services:
+    web:
+        build: ./dockerfiles/web
+        volumes:
+            - ${SOURCE_ROOT_FOLDER}:/app
