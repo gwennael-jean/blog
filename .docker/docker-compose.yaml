@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: ./services/web
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
+    volumes:
+      - ${SOURCE_ROOT_FOLDER}user:/home/www-data/app/user
+    environment:
+      - GRAV_ENVIRONMENT=development
+
+  node:
+    build:
+      context: ./services/node
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
+    volumes:
+      - ${SOURCE_ROOT_FOLDER}:/app

@@ -1,0 +1,5 @@
+tls:
+  certificates:
+    -
+      certFile: /etc/certs/leblogdegwenn.local.pem
+      keyFile: /etc/certs/leblogdegwenn.local-key.pem

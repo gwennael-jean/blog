@@ -1,0 +1,8 @@
+title: Grav
+default_lang: fr
+author:
+  name: Gwennael Jean
+  email: 'gwennael.jean@gmail.com'
+metadata:
+    description: 'Grav is an easy to use, yet powerful, open source flat-file CMS'
+

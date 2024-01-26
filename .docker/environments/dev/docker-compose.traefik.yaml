@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  web:
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.leblogdegwenn_https.tls=true
+      - traefik.http.routers.leblogdegwenn_https.rule=Host(`leblogdegwenn.local`)
+      - traefik.http.routers.leblogdegwenn_https.entryPoints=websecure
+
+  traefik:
+    image: traefik:v2.3
+    ports:
+      - ${PORT_HTTP}:80
+      - ${PORT_HTTPS}:443
+      - ${PORT_TRAEFIK}:8080
+    volumes:
+      - ${DOCKER_SOCK}:/var/run/docker.sock:ro
+      - ./services/traefik/traefik.yaml:/etc/traefik/traefik.yaml:ro
+      - ./services/traefik/certs:/etc/certs/:ro
+      - ./services/traefik/confs:/etc/traefik/confs/:ro
