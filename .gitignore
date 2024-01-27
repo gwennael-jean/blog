@@ -3,3 +3,6 @@
 
 # IDE
 /.idea
+
+# Node
+user/themes/*/node_modules
