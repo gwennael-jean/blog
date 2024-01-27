@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% if page.title %}{{ page.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+        {% block stylesheets %}
+            {% do assets.addCss('theme://css/main.css') %}
+        {% endblock %}
+
+        {% block javascripts %}
+            {% do assets.addJs('jquery', 101) %}
+        {% endblock %}
+
+        {% block assets deferred %}
+        {{ assets.css()|raw }}
+        {{ assets.js()|raw }}
+        {% endblock %}
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    </body>
+</html>

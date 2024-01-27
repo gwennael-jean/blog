@@ -1,0 +1,14 @@
+name: Gwenn
+slug: gwenn
+type: theme
+version: 1.0.0
+description: New Gwenn Theme
+icon: microchip
+author:
+  name: Gwennael Jean
+  email: gwennael.jean@gmail.com
+keywords: gwenn blog
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
