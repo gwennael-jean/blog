@@ -17,4 +17,6 @@ RUN npm i -g npm@8.17.0
 
 RUN npm i -g gulp-cli@2.3.0
 
+RUN npm i -g postcss-cli@11.0.0
+
 USER www-data
