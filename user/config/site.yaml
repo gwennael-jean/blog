@@ -1,8 +1,16 @@
-title: Le blog de gwenn
-subtitle: Les divagations d'un développeur
+title: First Application
+subtitle: Lorem Ipsum dolor sit amet
 default_lang: fr
 author:
   name: Gwennael Jean
   email: 'gwennael.jean@gmail.com'
 metadata:
     description: Juste a blog
+media:
+  jumbotron: image://jumbotron-cover.jpg
+  favicon: /images/favicon.png
+  cover: /images/cover.jpg
+  social:
+    twitter: 'https://twitter.com/gwennaeljean'
+    github: ''
+taxonomies: [category, tag]

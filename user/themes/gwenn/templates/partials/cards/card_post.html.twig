@@ -1,0 +1,24 @@
+<article class="card">
+    {% if page.media|first %}
+        <img src="{{ (page.media.images|first).url }}" class="header"/>
+    {% endif %}
+
+    <div class="body">
+        <a href="{{ page.url }}">
+            <h3 class="title">
+                {{ page.title }}
+            </h3>
+        </a>
+
+        <p class="content">
+            {{ page.summary | raw }}
+        </p>
+
+        <a href="{{ page.url }}" class="link">
+            Lire la suite
+            <span aria-hidden="true" class="link-arrow">
+                &rarr;
+          </span>
+        </a>
+    </div>
+</article>

@@ -1,16 +1,16 @@
-{% extends '.inc/layout.html.twig' %}
+{% extends 'partials/layout.html.twig' %}
 
 {% block content %}
-    <section class="jumbotron">
-        <div class="jumbotron-grid">
-            <div class="jumbotron-container">
-                <h2 class="title">
-                    {{ config.site.title }}
-                </h2>
-                <p class="subtitle">
-                    {{ config.site.subtitle }}
-                </p>
-            </div>
+    <div class="mb-4">
+        {% include 'partials/jumbotrons/home-jumbotron.html.twig' %}
+    </div>
+
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-8">
+            {% for child in page.collection('development') %}
+                {% include 'partials/cards/card_post.html.twig' with { page: child } %}
+            {% endfor %}
         </div>
-    </section>
+    </div>
+
 {% endblock %}

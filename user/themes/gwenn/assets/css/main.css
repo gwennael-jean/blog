@@ -1,3 +1,4 @@
+@import "./components/card.css";
 @import "./components/jumbotron.css";
 
 @tailwind base;

@@ -1,0 +1,8 @@
+title: Accueil
+development:
+  items:
+    - '@taxonomy.category': [développement]
+  order:
+    by: date
+    dir: desc
+  limit: 4

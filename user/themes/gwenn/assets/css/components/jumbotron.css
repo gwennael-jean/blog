@@ -1,6 +1,10 @@
 @layer components {
     .jumbotron {
-        @apply bg-gray-50;
+        @apply bg-gray-50 bg-cover bg-no-repeat bg-center;
+
+        .jumbotron-header {
+            @apply container mx-auto;
+        }
 
         .jumbotron-grid {
             @apply p-8 md:p-12 lg:px-16 lg:py-24;

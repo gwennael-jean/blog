@@ -3,6 +3,7 @@ version: "3"
 vars:
   DOCKER_DIR: ".docker"
   DOCKER_COMPOSE: "docker compose"
+  THEME: "gwenn"
 
 tasks:
   docker:build:
@@ -69,3 +70,9 @@ tasks:
       - task: docker:log
         vars:
           CLI_ARGS: web
+
+  docker:npm:watch:
+    desc: Lancement de la commande npm run watch
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} run --rm node npm --prefix=user/themes/{{.THEME}}/ run watch"
