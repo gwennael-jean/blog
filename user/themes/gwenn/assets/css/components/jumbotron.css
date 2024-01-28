@@ -1,0 +1,21 @@
+@layer components {
+    .jumbotron {
+        @apply bg-gray-50;
+
+        .jumbotron-grid {
+            @apply p-8 md:p-12 lg:px-16 lg:py-24;
+
+            .jumbotron-container {
+                @apply mx-auto max-w-lg text-center;
+            }
+        }
+
+        .title {
+            @apply text-2xl font-bold text-gray-900 md:text-3xl;
+        }
+
+        .subtitle {
+            @apply hidden text-gray-500 sm:mt-4 sm:block;
+        }
+    }
+}
