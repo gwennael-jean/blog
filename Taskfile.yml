@@ -1,0 +1,71 @@
+version: "3"
+
+vars:
+  DOCKER_DIR: ".docker"
+  DOCKER_COMPOSE: "docker compose"
+
+tasks:
+  docker:build:
+    desc: Build les containers Docker
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} build"
+
+  docker:up:
+    desc: Démarrage des containers Docker
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} up -d"
+
+  docker:down:
+    desc: Arrêt des containers Docker
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} down"
+
+  docker:restart:
+    desc: Stop et relance les containers Docker
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - task: docker:down
+      - task: docker:up
+
+  docker:ps:
+    desc: Affichage des containers Docker en cours d'exécution
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} ps"
+
+  docker:exec:
+    desc: Exécute une commande dans un container Docker
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} exec {{.CLI_ARGS}}"
+
+  docker:bash:
+    desc: Exécute une commande bash dans un container Docker
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} exec {{.CLI_ARGS}} bash"
+
+  docker:log:
+    desc: Affiche les logs d'un container Docker
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - "{{.DOCKER_COMPOSE}} logs -f {{.CLI_ARGS}}"
+
+  docker:web:
+    desc: Exécute une commande bash dans le container web
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - task: docker:bash
+        vars:
+          CLI_ARGS: web
+
+  docker:web:log:
+    desc: Affiche les logs du container web
+    dir: "{{.DOCKER_DIR}}"
+    cmds:
+      - task: docker:log
+        vars:
+          CLI_ARGS: web
